@@ -27,9 +27,10 @@ int8_t *Codeur::lm() {
       encours[j] = Vinit[j];
 
     for (int i = 0; i < n && i < size; i++) {
-      printf("i : %2d ------>", i);
-      for (int j = 0; j < etage[0]; j++)
-        printf("%2d ", encours[j]); // Affichage
+
+      // printf("i : %2d ------>", i);
+      // for (int j = 0; j < etage[0]; j++)
+      //   printf("%2d ", encours[j]); // Affichage
 
       bit = 0;
       for (int k = 0; etage[k] != -1; k++) {
@@ -45,7 +46,6 @@ int8_t *Codeur::lm() {
 
       encours[0] = bit; // On affecte le nouveau premier
 
-      printf("\n");
       L[i] = encours[etage[0] - 1];
     }
   }
