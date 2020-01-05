@@ -1,10 +1,9 @@
 #include "codeur.h"
 #include <iostream>
 
-Codeur::Codeur(int8_t *_etage, int8_t *_Vinit, int _n) {
+Codeur::Codeur(int8_t *_etage, int8_t *_Vinit) {
   etage = _etage;
   Vinit = _Vinit;
-  n = _n;
   size = 0;
   if (etage[0] > 0) {
     size = 2;
@@ -26,12 +25,11 @@ int8_t *Codeur::lm() {
     for (int j = 0; j < etage[0]; j++)
       encours[j] = Vinit[j];
 
-    for (int i = 0; i < n && i < size; i++) {
-
+    for (int i = 0; i < size; i++) {
+      L[i] = encours[etage[0] - 1];
       // printf("i : %2d ------>", i);
       // for (int j = 0; j < etage[0]; j++)
       //   printf("%2d ", encours[j]); // Affichage
-
       bit = 0;
       for (int k = 0; etage[k] != -1; k++) {
         // printf("      %d xor %d : ",encours[etage[k]-1] , bit);
@@ -46,7 +44,7 @@ int8_t *Codeur::lm() {
 
       encours[0] = bit; // On affecte le nouveau premier
 
-      L[i] = encours[etage[0] - 1];
+
     }
   }
   return L;

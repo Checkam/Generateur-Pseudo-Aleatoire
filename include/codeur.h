@@ -11,7 +11,7 @@ private:
   int size;
 
 public:
-  Codeur(int8_t *, int8_t *, int n);
+  Codeur(int8_t *, int8_t *);
   int8_t *lm();
   int getSize();
 };
